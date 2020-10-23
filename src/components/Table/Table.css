@@ -26,4 +26,10 @@ td {
 
 tr:nth-child(even) {
   background-color: var(--blue-fill-lighter);
+  
+}
+
+tr:hover {
+  background-color: var(--grey-fill-highlight);
+  
 }
