@@ -1,0 +1,28 @@
+@import "../globals/colors.css";
+
+.table-container {
+  border-radius: 10px;
+  border: 1px solid var(--blue-dark-font);
+  color: var(--blue-dark-font);
+  margin: 20px;
+  overflow: hidden;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+th {
+  color: white;
+  padding: 10px 30px 10px 30px;
+  background-color: var(--blue-fill-elem);
+  font-size: 18px;
+}
+
+td {
+  padding: 10px 30px 10px 30px;
+}
+
+tr:nth-child(even) {
+  background-color: var(--blue-fill-lighter);
+}

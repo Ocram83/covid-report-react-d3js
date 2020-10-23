@@ -1,0 +1,19 @@
+@import "../globals/colors.css";
+
+.histogram {
+  padding-top: 60px;
+  border: 1px dashed var(--blue-fill-elem);
+}
+.histogramTitle {
+  font-size: 22px;
+  fill: var(--blue-dark-font);
+}
+
+.rect {
+  fill: var(--blue-fill-elem);
+}
+
+.barText {
+  fill: white;
+  font-size: 14px;
+}
