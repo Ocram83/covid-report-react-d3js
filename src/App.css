@@ -1,0 +1,22 @@
+.App {
+  color: #003953;
+}
+
+.App-header {
+  text-align: center;
+  background-color: #282c34;
+  display: flex;
+  flex-direction: column;
+  align-items: top;
+  justify-content: top;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-body {
+  padding-top: 60px;
+  padding-left: 50px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
