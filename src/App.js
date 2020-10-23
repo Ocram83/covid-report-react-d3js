@@ -52,7 +52,7 @@ function App(props) {
       >
         <div ref={wrapperRefHistogram}>
           <Histogram
-            width={1500}
+            width={1400}
             height={700}
             title={"COVID-19 Positive Cases"+(regionSelected?" - "+regionSelected:"")}
             data={histogram.data}
