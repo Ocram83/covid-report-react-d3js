@@ -21,6 +21,7 @@ th {
 
 td {
   padding: 10px 30px 10px 30px;
+  cursor: pointer;
 }
 
 tr:nth-child(even) {
