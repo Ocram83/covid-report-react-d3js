@@ -103,6 +103,13 @@ function renderHeaders(
         <div className="sub-header-content-data">{headers.tamponi}</div>
       </div>
       <div className="sub-header-box">
+        <div className="sub-header-content-description">% positivi</div>
+        <div className="sub-header-content-data">
+          {Math.round(((headers.histogram.y * 100) / headers.tamponi) * 100) /
+            100}
+        </div>
+      </div>
+      <div className="sub-header-box">
         <div className="sub-header-content-description">
           {regionSelected ? "Regione" : "Nazione"}
         </div>
