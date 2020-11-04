@@ -13,7 +13,7 @@ const Table = props => {
   let { header, data } = props;
 
   if (!data) {
-    return <div>NO DATA</div>;
+    return <div/>;
   }
 
   return (
