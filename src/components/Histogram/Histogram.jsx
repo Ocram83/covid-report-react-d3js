@@ -14,10 +14,10 @@ const Histogram = props => {
   let { height, width, title, data } = props;
 
   if (!data) {
-    return <div> NO DATA </div>;
+    return <div/>;
   }
 
-  let margin = (width + height / 2) / 5;
+  let margin = (width + height / 2) / 8;
 
   let graphWidth = width - margin;
   let graphHeight = height - margin;
@@ -37,9 +37,15 @@ const Histogram = props => {
     .range([graphHeight, 0]) //the size of the y axis, coordinate system start from top left corner
     .domain([0, maxY]); // domain
 
-  let translateGraph = `translate(${margin / 2},${(margin * 2) / 3})`;
-  let translateTitle = `translate(${width / 2},${margin / 3})`;
+  let translateGraph = `translate(${margin / 2},${(margin * 2) / 5})`;
+  let translateTitle = `translate(${width / 2},${margin / 5})`;
 
+  d3.selectAll("rect").on("mouseover", function(){
+    d3.select(this).attr("opacity", .5)
+  }).on("mouseout", function(){
+    d3.select(this).attr("opacity", 1)
+  });
+  
   return (
     <svg className="histogram" width={width} height={height}>
       <text
@@ -70,6 +76,7 @@ const Histogram = props => {
 
 const Bar = props => {
   let { width, height, x, y, value } = props;
+
   return (
     <>
       <rect className="rect" width={width} height={height} x={x} y={y} />
