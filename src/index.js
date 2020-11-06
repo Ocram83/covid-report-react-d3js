@@ -8,12 +8,18 @@ import { createStore, applyMiddleware } from "redux";
 
 import thunk from "redux-thunk";
 
+import TagManager from "react-gtm-module";
+
 import App from "./App";
 import "./index.css";
 import * as serviceWorker from "./serviceWorker";
-import { loadHistogram, loadTable, loadData } from "./thunk";
+import { loadData } from "./thunk";
 
 import rootReducer from "./reducers/rootReducer.js";
+const tagManagerArgs = {
+  gtmId: "<G-SJMFFM5EVV>",
+};
+TagManager.initialize(tagManagerArgs);
 
 const store = createStore(rootReducer, applyMiddleware(thunk));
 
