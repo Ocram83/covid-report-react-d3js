@@ -77,7 +77,7 @@ export const loadHistogram = () => (dispatch, getState) => {
       regione: v.denominazione_regione,
     };
   });
-  const histogram = Object.entries(_.groupBy(raw_data, "data")).map((val) => {
+  let histogram = Object.entries(_.groupBy(raw_data, "data")).map((val,index) => {
     return {
       x: val[0].substring(0, 10),
       y: val[1]
@@ -107,6 +107,13 @@ export const loadHistogram = () => (dispatch, getState) => {
     date: new Date(oggi.data),
     tamponi,
   };
+
+  let yourDate = new Date()
+  yourDate.setFullYear((yourDate.getFullYear()-1));
+  yourDate=yourDate.toISOString().split('T')[0]
+
+  histogram = histogram.filter(e => e.x<yourDate)
+  console.log("histogram",histogram)
   dispatch({ type: PUT_HEADER_DATA, headers });
   dispatch({ type: LOAD_HISTOGRAM_SUCCESS, histogram });
 };
@@ -156,8 +163,9 @@ export const loadHistogramFromTable = (regionSelected) => (
 
   const histogram = Object.entries(_.groupBy(raw_data, "regione"))
     .find((region) => region[0] === regionSelected)[1]
-    .map((region) => {
-      return { x: region.data.substring(0, 10), y: region.nuovi_positivi };
+    .map((region, index) => {
+      
+      return { x: index%40==0?region.data.substring(0, 10):'', y: region.nuovi_positivi };
     });
 
   const region_data = state.data.filter(

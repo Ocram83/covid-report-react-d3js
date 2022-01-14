@@ -13,7 +13,7 @@ import "./Histogram.css";
 const Histogram = props => {
   let { height, width, title, data } = props;
 
-  if (!data) {
+  if (!data || window.innerWidth <1024) {
     return <div/>;
   }
 
@@ -29,7 +29,7 @@ const Histogram = props => {
   const xScale = d3
     .scaleBand()
     .range([0, graphWidth]) //the size of the y axis, coordinate system start from top left corner
-    .domain(data.map(s => s.x))
+    .domain(data.map((s,i) => s.x))
     .padding(0.2);
 
   const yScale = d3
