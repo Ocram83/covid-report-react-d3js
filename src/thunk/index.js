@@ -112,7 +112,7 @@ export const loadHistogram = () => (dispatch, getState) => {
   yourDate.setFullYear((yourDate.getFullYear()-1));
   yourDate=yourDate.toISOString().split('T')[0]
 
-  histogram = histogram.filter(e => e.x<yourDate)
+  //histogram = histogram.filter(e => e.x<yourDate)
   console.log("histogram",histogram)
   dispatch({ type: PUT_HEADER_DATA, headers });
   dispatch({ type: LOAD_HISTOGRAM_SUCCESS, histogram });
